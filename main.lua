@@ -66,7 +66,9 @@ function love.mousepressed(x, y, button, isTouch)
 end
 
 function love.mousereleased(x, y, button, isTouch)
-    -- mouse released event
+    mouse_pressed = false
+
+    x_dir = 0
 end
 
 function love.focus(focused)
