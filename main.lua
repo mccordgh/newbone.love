@@ -56,7 +56,13 @@ function love.draw()
 end
 
 function love.mousepressed(x, y, button, isTouch)
-    -- mouse pressed event
+    mouse_pressed = true
+
+    if x > (game.width / 2) then
+        x_dir = 1
+    else
+        x_dir = -1
+    end
 end
 
 function love.mousereleased(x, y, button, isTouch)
