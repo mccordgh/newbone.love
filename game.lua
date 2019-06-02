@@ -5,6 +5,8 @@ function game.init()
     game.height = 1334 / 2
     game.width = 750 / 2
     game.horizontal_padding = 16
+    game.tile_width = game.width / 8
+    game.tile_height = game.height / 16
 
     game.flags = {
         fullscreen = false,
