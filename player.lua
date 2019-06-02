@@ -36,7 +36,13 @@ function player.update(dt)
 end
 
 function player.draw_self(dt)
+    -- player
     love.graphics.setColor(0, 1, 0, 1)
-
     love.graphics.rectangle("fill", player.x, player.y, player.width, player.height)
+
+    -- draw collision bounds box
+    local bx = player.x + player.bounds.x_offset
+    local by = player.y + player.bounds.y_offset
+    love.graphics.setColor(0, 0, 1, 1)
+    love.graphics.rectangle("fill", bx, by, player.bounds.width, player.bounds.height)
 end
