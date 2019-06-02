@@ -1,12 +1,24 @@
 player = {}
 
 function player.init()
-    player.height = 48
-    player.width = 32
+    player.height = 64
+    player.width = 48
+
+    -- dividing by 2 for now (otherwise height is too tall for screen)
+    player.height = player.height / 2
+    player.width = player.width / 2
+    -- REMOVE THIS FOR APP BUILD
+
     player.x = (love.graphics.getWidth() / 2) - (player.width / 2)
     player.y = love.graphics.getHeight() - player.height
     player.horizontal_speed = 200
     player.vertical_speed = 200
+
+    player.bounds = {}
+    player.bounds.x_offset = player.width / 4
+    player.bounds.y_offset = player.height / 4
+    player.bounds.width = player.width - (player.bounds.x_offset * 2)
+    player.bounds.height = player.height - player.bounds.y_offset
 end
 
 function player.update(dt)
