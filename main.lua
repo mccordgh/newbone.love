@@ -15,6 +15,9 @@
 -- iPhone 6s	        750px × 1334px	        1334px × 750px
 -- iPhone SE	        640px × 1136px	        1136px × 640px
 
+local game = require("game")
+local player = require("player")
+
 function love.load()
     -- loading stuff
 end
