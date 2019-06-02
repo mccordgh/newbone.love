@@ -27,6 +27,23 @@ function love.load()
 end
 
 function love.update(dt)
+    if paused then
+        return
+    end
+
+    if mouse_pressed then
+        new_x = player.x + x_dir
+
+        if new_x < game.horizontal_padding then
+            new_x = game.horizontal_padding
+        end
+
+        if new_x > (game.width - player.width - game.horizontal_padding) then
+            new_x = (game.width - player.width - game.horizontal_padding)
+        end
+
+        player.x = new_x
+    end
     -- update stuff with deltatime (dt)
 end
 
