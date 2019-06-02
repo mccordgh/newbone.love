@@ -25,6 +25,7 @@ function love.load()
 
     mouse_pressed = false
     paused = false
+    x_dir = 0
 end
 
 function love.update(dt)
