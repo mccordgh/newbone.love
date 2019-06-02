@@ -48,7 +48,11 @@ function love.update(dt)
 end
 
 function love.draw()
-    love.graphics.print("Hello World!!!", 400, 300)
+    if paused then
+        return
+    end
+
+    love.graphics.rectangle("fill", player.x, player.y, player.width, player.height)
 end
 
 function love.mousepressed(x, y, button, isTouch)
