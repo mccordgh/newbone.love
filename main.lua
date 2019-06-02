@@ -19,7 +19,11 @@ local game = require("game")
 local player = require("player")
 
 function love.load()
-    -- loading stuff
+    game.init()
+    player.init()
+
+    mouse_pressed = false
+    paused = false
 end
 
 function love.update(dt)
