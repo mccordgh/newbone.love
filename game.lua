@@ -1,12 +1,22 @@
-local game = {}
+game = {}
 
 function game.init()
-    -- using iPhone 7 values divided by 2 for now (otherwise height is too tall for screen)
-    game.height = 1334 / 2
-    game.width = 750 / 2
-    game.horizontal_padding = 16
-    game.tile_width = game.width / 8
-    game.tile_height = game.height / 16
+    -- using iPhone 7 values for now
+    game.height = 1334
+    game.width = 750
+    game.horizontal_tile_count = 12
+    game.vertical_tile_count = 20
+    -- game.horizontal_padding = ceil(game.width * .05)
+    game.tile_width = math.floor(game.width / game.horizontal_tile_count)
+    game.tile_height = math.floor(game.height / game.vertical_tile_count)
+
+    -- dividing by 2 for now (otherwise height is too tall for screen)
+    game.height = game.height / 2
+    game.width = game.width / 2
+    -- game.horizontal_padding = game.horizontal_padding / 2
+    game.tile_width = game.tile_width / 2
+    game.tile_height = game.tile_height / 2
+    -- REMOVE THIS FOR APP BUILD
 
     game.flags = {
         fullscreen = false,
@@ -24,5 +34,3 @@ function game.init()
     -- success = love.window.setMode(game.width, game.height, game.flags)
     love.window.setMode(game.width, game.height, game.flags)
 end
-
-return game
