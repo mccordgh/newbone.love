@@ -17,6 +17,7 @@
 
 local game = require("game")
 local player = require("player")
+local game_board = require("game_board")
 
 function love.load()
     game.init()
