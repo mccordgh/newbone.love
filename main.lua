@@ -72,7 +72,11 @@ function love.mousereleased(x, y, button, isTouch)
 end
 
 function love.focus(focused)
-    -- if not focused then game is in background aka lost focus
+    if not focused then
+        paused = true
+    else
+        paused = false
+    end
 end
 
 function love.quit()
