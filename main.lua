@@ -53,6 +53,8 @@ function love.draw()
         return
     end
 
+    game_board.draw_board(game.height, game.width, game.tile_height, game.tile_width)
+
     love.graphics.rectangle("fill", player.x, player.y, player.width, player.height)
 end
 
