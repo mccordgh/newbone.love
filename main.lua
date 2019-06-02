@@ -16,11 +16,12 @@
 -- iPhone SE	        640px × 1136px	        1136px × 640px
 
 require("game")
-require("player")
 require("game_board")
+require("player")
 
 function love.load()
     game.init()
+    game_board.init()
     player.init()
 
     mouse_pressed = false
@@ -33,20 +34,8 @@ function love.update(dt)
         return
     end
 
-    -- if x_dir then
-        new_x = player.x + (player.speed * x_dir * dt)
-
-        if new_x < 0 then
-            new_x = 0
-        end
-
-        if new_x > (game.width - player.width) then
-            new_x = game.width - player.width
-        end
-
-        player.x = new_x
-    -- end
-    -- update stuff with deltatime (dt)
+    game_board.update(dt)
+    player.update(dt)
 end
 
 function love.draw()
@@ -54,9 +43,8 @@ function love.draw()
         return
     end
 
-    game_board.draw_board()
-
-    love.graphics.rectangle("fill", player.x, player.y, player.width, player.height)
+    game_board.draw_self()
+    player.draw_self()
 end
 
 function love.mousepressed(x, y, button, isTouch)
