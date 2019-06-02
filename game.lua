@@ -4,11 +4,11 @@ function game.init()
     -- using iPhone 7 values for now
     game.height = 1334
     game.width = 750
-    game.horizontal_tile_count = 12
-    game.vertical_tile_count = 20
+    game.horizontal_tile_count = 8
+    game.vertical_tile_count = 16
     -- game.horizontal_padding = ceil(game.width * .05)
-    game.tile_width = math.floor(game.width / game.horizontal_tile_count)
-    game.tile_height = math.floor(game.height / game.vertical_tile_count)
+    game.tile_width = game.width / game.horizontal_tile_count
+    game.tile_height = game.height / game.vertical_tile_count
 
     -- dividing by 2 for now (otherwise height is too tall for screen)
     game.height = game.height / 2
