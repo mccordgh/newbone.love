@@ -33,19 +33,19 @@ function love.update(dt)
         return
     end
 
-    if mouse_pressed then
-        new_x = player.x + x_dir
+    -- if x_dir then
+        new_x = player.x + (player.speed * x_dir * dt)
 
-        if new_x < game.horizontal_padding then
-            new_x = game.horizontal_padding
+        if new_x < 0 then
+            new_x = 0
         end
 
-        if new_x > (game.width - player.width - game.horizontal_padding) then
-            new_x = (game.width - player.width - game.horizontal_padding)
+        if new_x > (game.width - player.width) then
+            new_x = game.width - player.width
         end
 
         player.x = new_x
-    end
+    -- end
     -- update stuff with deltatime (dt)
 end
 
@@ -54,7 +54,7 @@ function love.draw()
         return
     end
 
-    game_board.draw_board(game.height, game.width, game.tile_height, game.tile_width)
+    game_board.draw_board()
 
     love.graphics.rectangle("fill", player.x, player.y, player.width, player.height)
 end
@@ -72,7 +72,7 @@ end
 function love.mousereleased(x, y, button, isTouch)
     mouse_pressed = false
 
-    x_dir = 0
+    -- x_dir = 0
 end
 
 function love.focus(focused)
