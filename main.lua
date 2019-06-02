@@ -24,6 +24,10 @@ function love.load()
     game_board.init()
     player.init()
 
+    --calculate the amount of sx, and sy
+    sx = game.width / love.graphics.getWidth()
+    sy = game.height / love.graphics.getHeight()
+
     mouse_pressed = false
     paused = false
     x_dir = 0
@@ -43,8 +47,13 @@ function love.draw()
         return
     end
 
+    love.graphics.push()
+    love.graphics.scale(sx, sy)
+
     game_board.draw_self()
     player.draw_self()
+
+    love.graphics.pop()
 end
 
 function love.mousepressed(x, y, button, isTouch)
